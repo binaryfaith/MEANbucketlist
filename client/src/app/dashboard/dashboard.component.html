@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <a href="/dashboard">Home</a>
+    <a href="">Logout</a>
+  </nav>
+  <form action="/submitcreate" method="post" (submit)="onSubmit()">
+    <input required minlength="5" type="text" name="title">
+    <input required minlength="10" type="text" name="description">
+    <input type="submit">
+    <a href="/dashboard">Cancel</a>
+  </form>
+  <div>
+      <h4>Before I die I want to..</h4>
+          <p ng-repeat="bucket in buckets" ng-show="bucket._creator._id === user.id || bucket.tagged.id === user.id"> <input ng-click="checkItem(bucket)" type="checkbox" ng-checked="bucket.status=='1'"> {{bucket._creator.name}} || {{bucket.title}} - {{bucket.description}} with {{bucket.tagged.name}}...-{{bucket.createdAt | date:'MMM. dd, yyyy'}}...{{bucket.status}}</p>
+      </div><!--End jumbotron-->
+      
+      <div>
+          <h4>List of other users (Click to view profile):</h4>
+          <p ng-repeat="user in users" ng-show="current_user._id != user._id"><a href="#/show/{{user._id}}">{{user.name}}</a></p>
+      </div><!--end jumbotron-->
+  
+</body>
+</html>
+  
+  
+
+
